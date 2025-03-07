@@ -6434,11 +6434,11 @@ const maxItems = 50;
 
 // Danh sách hình ảnh rơi xuống
 const items = [
-  { src: "/img/chocolate.png", class: "chocolate" },
-  { src: "/img/banh.png", class: "banh" },
-  { src: "/img/banh2.png", class: "banh2" },
-  { src: "/img/hotdog.png", class: "hotdog" },
-  { src: "/img/cro.png", class: "cro" }
+  { src: "/HappyWomenDay/img/chocolate.png", class: "chocolate" },
+  { src: "/HappyWomenDay/img/banh.png", class: "banh" },
+  { src: "/HappyWomenDay/img/banh2.png", class: "banh2" },
+  { src: "/HappyWomenDay/img/hotdog.png", class: "hotdog" },
+  { src: "/HappyWomenDay/img/cro.png", class: "cro" }
 ];
 
 document.addEventListener("mousemove", (e) => {
