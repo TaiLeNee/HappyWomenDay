@@ -6439,8 +6439,8 @@ const items = [
   { src: "/HappyWomenDay/img/banh2.png", class: "banh2" },
   { src: "/HappyWomenDay/img/hotdog.png", class: "hotdog" },
   { src: "/HappyWomenDay/img/cro.png", class: "cro" },
-  { src: "/HappyWomenDay/img/chocolatecake.jpg", class: "ccake"},
-  { src: "/HappyWomenDay/img/stawberrycake.jpg", class: "scake"}
+  { src: "/HappyWomenDay/img/chocolatecake.png", class: "ccake"},
+  { src: "/HappyWomenDay/img/stawberrycake.png", class: "scake"}
 ];
 
 document.addEventListener("mousemove", (e) => {
