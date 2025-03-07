@@ -6432,7 +6432,6 @@ let lastDropTime = 0;
 const dropInterval = 100; 
 const maxItems = 50; 
 
-// Danh sách hình ảnh rơi xuống
 const items = [
   { src: "/HappyWomenDay/img/chocolate.png", class: "chocolate" },
   { src: "/HappyWomenDay/img/banh.png", class: "banh" },
@@ -6443,6 +6442,16 @@ const items = [
   { src: "/HappyWomenDay/img/strawberrycake.png", class: "scake"}
 ];
 
+// const items = [
+//   { src: "/img/chocolate.png", class: "chocolate" },
+//   { src: "/img/banh.png", class: "banh" },
+//   { src: "/img/banh2.png", class: "banh2" },
+//   { src: "/img/hotdog.png", class: "hotdog" },
+//   { src: "/img/cro.png", class: "cro" },
+//   { src: "/img/chocolatecake.png", class: "ccake"},
+//   { src: "/img/strawberrycake.png", class: "scake"}
+// ];
+
 document.addEventListener("mousemove", (e) => {
   const now = Date.now();
   if (now - lastDropTime < dropInterval) return; 
@@ -6451,7 +6460,7 @@ document.addEventListener("mousemove", (e) => {
   const randomItem = items[Math.floor(Math.random() * items.length)];
 
   const item = document.createElement("img");
-  item.classList.add("falling-item", randomItem.class); // Thêm lớp CSS tương ứng
+  item.classList.add("falling-item", randomItem.class); 
   item.src = randomItem.src;
 
   item.style.left = `${e.clientX}px`;
@@ -6468,3 +6477,60 @@ document.addEventListener("mousemove", (e) => {
       fallingItems[0].remove();
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cardButton = document.getElementById("cardButton");
+  const card = document.getElementById("greetingCard");
+  let flowerInterval; 
+
+  function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      document.body.appendChild(flower);
+
+     
+      const x = Math.random() * window.innerWidth;
+      flower.style.left = `${x}px`;
+      flower.style.top = `-50px`; 
+
+ 
+      const size = Math.random() * 40 + 40; 
+      flower.style.width = `${size}px`;
+      flower.style.height = `${size}px`;
+
+  
+      const duration = Math.random() * 2 + 4; 
+      flower.style.animationDuration = `${duration}s`;
+
+     
+      setTimeout(() => { flower.remove(); }, duration * 1000);
+  }
+
+  cardButton.addEventListener("click", function () {
+      if (card.classList.contains("open")) {
+
+          card.classList.remove("open");
+
+     
+          setTimeout(() => {
+              card.classList.add("hidden");
+          }, 500);
+
+     
+          clearInterval(flowerInterval);
+      } else {
+  
+          card.classList.remove("hidden");
+
+     
+          setTimeout(() => {
+              card.classList.add("open");
+          }, 100);
+
+  
+          flowerInterval = setInterval(createFlower, 500);
+      }
+  });
+});
+
+
