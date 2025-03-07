@@ -6440,7 +6440,7 @@ const items = [
   { src: "/HappyWomenDay/img/hotdog.png", class: "hotdog" },
   { src: "/HappyWomenDay/img/cro.png", class: "cro" },
   { src: "/HappyWomenDay/img/chocolatecake.png", class: "ccake"},
-  { src: "/HappyWomenDay/img/stawberrycake.png", class: "scake"}
+  { src: "/HappyWomenDay/img/strawberrycake.png", class: "scake"}
 ];
 
 document.addEventListener("mousemove", (e) => {
