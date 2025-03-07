@@ -6426,3 +6426,43 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   });
   var cursor = new _cursor.default(document.querySelector('.cursor'));
   },{"../cursor":"LMRJ","./grid":"toX6","../utils":"MgTz"}]},{},["C3Xv"], null)
+
+
+let lastDropTime = 0; 
+const dropInterval = 100; 
+const maxItems = 50; 
+
+// Danh sách hình ảnh rơi xuống
+const items = [
+  { src: "/img/chocolate.png", class: "chocolate" },
+  { src: "/img/banh.png", class: "banh" },
+  { src: "/img/banh2.png", class: "banh2" },
+  { src: "/img/hotdog.png", class: "hotdog" },
+  { src: "/img/cro.png", class: "cro" }
+];
+
+document.addEventListener("mousemove", (e) => {
+  const now = Date.now();
+  if (now - lastDropTime < dropInterval) return; 
+  lastDropTime = now; 
+
+  const randomItem = items[Math.floor(Math.random() * items.length)];
+
+  const item = document.createElement("img");
+  item.classList.add("falling-item", randomItem.class); // Thêm lớp CSS tương ứng
+  item.src = randomItem.src;
+
+  item.style.left = `${e.clientX}px`;
+  item.style.top = `${e.clientY}px`;
+
+  document.body.appendChild(item);
+
+  setTimeout(() => {
+      item.remove();
+  }, 5000);
+
+  const fallingItems = document.querySelectorAll(".falling-item");
+  if (fallingItems.length > maxItems) {
+      fallingItems[0].remove();
+  }
+});

@@ -25,12 +25,13 @@ main {
 
 body {
 	margin: 0;
-	--color-text: #d05400;
-    --color-bg: #0c0c0c;
-    --color-link: #6b5537;
+	--color-text: #405D72;
+    --color-bg: #FEFEFE;
+    --color-link: #E3EEF6;
 	--color-link-hover: #fff;
 	--color-content-title-sub: #6b5537;
     color: var(--color-text);
+	background: url('bg.svg');
     background-color: var(--color-bg);
     --cursor-stroke: #6b5537;
     --cursor-fill: none;
@@ -38,6 +39,16 @@ body {
 	font-family: bilo, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	animation: scrollBackground 10s linear infinite;
+}
+
+@keyframes scrollBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
 }
 
 .demo-2 {
@@ -98,7 +109,6 @@ a:focus {
 	height: 60px;
 	margin: -30px 0 0 -30px;
 	border-radius: 50%;
-	opacity: 0.4;
 	background: var(--color-link);
 	animation: loaderAnim 0.7s linear infinite alternate forwards;
 
@@ -106,7 +116,6 @@ a:focus {
 
 @keyframes loaderAnim {
 	to {
-		opacity: 1;
 		transform: scale3d(0.5,0.5,1);
 	}
 }
@@ -187,7 +196,10 @@ a:focus {
 
 .grid__item {
 	position: relative;
-	opacity: 0.4,
+}
+
+.grid__item-img {
+	opacity: 1 !important;
 }
 
 .grid--img .grid__item {
@@ -200,8 +212,8 @@ a:focus {
 
 .grid__item-img {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 70%;
+	height: 70%;
 	background-size: cover;
 	background-position: 50% 50%;
 	z-index: 100;
@@ -221,19 +233,23 @@ a:focus {
 }
 
 .pos-2 {
-	grid-area: 1 / 18 / 9 / 27;
+	grid-area: 1 / 18 / 20 / 27;
 }
 
 .pos-3 {
-	grid-area: 1 / 36 / 14 / 42;
+	grid-area: 1 / 32 / 14 / 38;
+	width: 150%;
+	height: 150%;
 }
 
 .pos-4 {
-	grid-area: 13 / 11 / 32 / 18;
+	grid-area: 10 / 5 / 29 / 12;
 }
 
 .pos-5 {
-	grid-area: 17 / 32 / 32 / 38;
+	grid-area: 17 / 43 / 32 / 49;
+	width: 130%;
+	height: 130%;
 }
 
 .pos-6 {
@@ -241,11 +257,15 @@ a:focus {
 }
 
 .pos-7 {
-	grid-area: 43 / 1 / 51 / 10;
+	grid-area: 30 / 3 / 48 / 12;
+	width: 150%;
+	height: 150%;
 }
 
 .pos-8 {
-	grid-area: 38 / 14 / 46 / 22;
+	grid-area: 20 / 20 / 35 / 30;
+	width: 170%;
+	height: 170%;
 }
 
 .pos-9 {
@@ -254,6 +274,8 @@ a:focus {
 
 .pos-10 {
  	grid-area: 37 / 39 / 48 / 47;
+	width: 150%;
+	height: 150%;
 }
 
 .content__title {
@@ -261,17 +283,23 @@ a:focus {
 	font-weight: 400;
 	font-size: 10vw;
 	margin: 10px 0;
-	line-height: 1;
+	line-height: 2;
 	position: relative;
+
+}
+
+#unique{
+	text-align: center;
 }
 
 .content__title-sub {
 	color: var(--color-content-title-sub);
-	font-size: 4vw;
-	display: block;
-	margin-left: 3vw;
-	line-height: 0.5;
+    font-size: 4vw;
+    display: block;
+    margin: 0; /* Xóa margin trái */
+    line-height: 1;
 }
+
 
 .cursor {
 	display: none;
@@ -335,7 +363,6 @@ a:focus {
 
 .grid__item-img:hover {
 	opacity: 1 !important;
-	
 }
 
 @media (any-pointer: fine) {
@@ -351,4 +378,39 @@ a:focus {
 		stroke: var(--cursor-stroke);
 		stroke-width: var(--cursor-stroke-width);
 	}
+}
+.chocolate {
+    width: 150px;
+    height: 150px;
+}
+
+.banh {
+    width: 80px;
+    height: 80px;
+}
+
+.banh2 {
+    width: 120px;
+    height: 120px;
+}
+
+.cro {
+    width: 130px;
+    height: 130px;
+}
+
+.hotdog {
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes fall {
+	0% { transform: translateY(0px) scale(1); opacity: 1; }
+	100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+}
+
+.falling-item {
+    position: absolute;
+    font-size: 50px;
+    animation: fall 5s linear forwards;
 }
